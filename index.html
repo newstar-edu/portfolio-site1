@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Task</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <section class="todo-container">
+            <h1>Daily Task</h1>
+            <p>Find your passion, build your career.</p>
+            <button type="button" class="btn-all-clear">🧹</button>
+            <div class="todo-list">
+                <div class="todo">
+                    <span>Do Something!</span>
+                    <button>❎</button>
+                </div>
+                <div class="todo">
+                    <span>Do Something!</span>
+                    <button>❎</button>
+                </div>
+                <div class="todo">
+                    <span>Do Something!</span>
+                    <button>❎</button>
+                </div>
+            </div>
+            <div class="todo-input">
+                <input type="text" placeholder="Enter your task" /><button type="button">Add</button>
+            </div>
+        </section>
+        <aside class="change-mode-box">
+            <input type="checkbox" id="change-mode" class="hide" />
+            <label for="change-mode" class="toggle-switch"></label>
+        </aside>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

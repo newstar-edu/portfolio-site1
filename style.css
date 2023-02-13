@@ -1,0 +1,194 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* OS 라이트 모드 or OS 지정 모드 없음 */
+:root {
+	--bg-container: #f9fafe;
+	--bg-item: #fff;
+	--bg-add-button: #7F7FD5;
+	--bg-theme-button: rgba(0,0,0,0.4);
+	--color-text: #222;
+	--color-sub-text: #999;
+	--bg-shadow: rgba(0,0,0,0.15);
+}
+
+/* 사용자 다크 모드 */
+[data-theme="dark"] {
+	--bg-container: #272a2e;
+	--bg-item: #2b2d31;
+	--bg-add-button: #7F7FD5;
+	--bg-theme-button: rgba(255,255,255,0.4);
+	--color-text: #e9e9ea;
+	--color-sub-text: #ccc;
+	--bg-shadow: rgba(255,255,255,0.15);
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.hide {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	width: 0;
+	height: 0;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+input[type=text] {
+	border: 1px solid #d8d8d8;
+	border-radius: 0;
+	background: #fff;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[type=text]:focus {
+	outline-width: 1px;
+}
+
+/* daily task */
+.wrap {
+	display: flex;
+	justify-content: center;
+	padding: 15px;
+	background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+	height: 100vh;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+
+.todo-container {
+	position: relative;
+	margin: auto;
+	padding: 25px;
+	width: 100%;
+	max-width: 500px;
+	border-radius: 10px;
+	background: var(--bg-container);
+	box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+	box-sizing: border-box;
+}
+
+.todo-container h1 {
+	font-size: 28px;
+	font-weight: 500;
+	color: var(--color-text);
+}
+
+.todo-container p {
+	padding: 0 0 25px;
+	font-size: 14px;
+	color: var(--color-sub-text);
+}
+
+.todo-container .btn-all-clear {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	font-size: 25px;
+}
+
+.todo-container .todo-list {
+	margin: -25px -20px;
+	padding: 25px 20px; /* box shadow 잘림 현상 방지 */
+	max-height: 50vh;
+	overflow-y: auto;
+}
+
+.todo-container .todo-list::-webkit-scrollbar {
+	width: 6px;
+} 
+.todo-container .todo-list::-webkit-scrollbar-thumb {
+	width: 10%; 
+	border-radius: 10px;
+	background-color: rgba(0,0,0,0.1); 
+}
+.todo-container .todo-list::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(0,0,0,0.5);
+}
+.todo-container .todo-list::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.todo-container .todo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 0 10px;
+	padding: 15px;
+	background: var(--bg-item);
+	border-left: 2px solid #708aef;
+	box-shadow: 0px 8px 24px var(--bg-shadow);
+	box-sizing: border-box;
+}
+
+.todo-container .todo:last-of-type {
+	margin: 0;
+}
+
+.todo-container .todo span {
+	max-width: calc(100% - 25px);
+	color: var(--color-text);
+	font-weight: 500;
+}
+
+.todo-container .todo-input {
+	padding: 20px 0 0;
+}
+
+.todo-container .todo-input input {
+	padding: 10px;
+	width: calc(100% - 65px);
+	height: 40px;
+	background: var(--bg-item);
+	font-size: 16px;
+	color: var(--color-text);
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+.todo-container .todo-input button {
+	width: 65px;
+	height: 40px;
+	background-color: #7F7FD5;
+	font-size: 18px;
+	color: #fff;
+	font-weight: 500;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+/* change mode */
+.change-mode-box {
+	position: fixed;
+	top: 30px;
+	right: 30px;
+}
+
+.toggle-switch {
+	font-size: 35px;
+	cursor: pointer;
+}
+
+.toggle-switch:after {
+	content: '🌝';
+	position: relative;
+}
+
+:checked + .toggle-switch:after {
+	content: '🌚';
+}
